@@ -22,7 +22,7 @@ def test_outdated_products() -> None:
             "price": 160
         }
     ]
-    fake_date = datetime.date(2022, 2, 2)
-    with mock.patch("datetime.date") as mock_date:
-        mock_date.today.return_value = fake_date
+    fake_date = datetime.date(2022, 2, 5)
+    with mock.patch("app.main.datetime") as mock_date:
+        mock_date.date.today.return_value = fake_date
         assert outdated_products(products) == ["duck"]
